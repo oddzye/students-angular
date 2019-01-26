@@ -6,12 +6,7 @@ import { STUDENTS } from '../students';
   styleUrls: ['./students-table-row.component.sass']
 })
 export class StudentsTableRowComponent implements OnInit {
-  name: string =  'name';
-    surname: string = 'surname';
-    patronymic: string = 'patronymic';
-    date: string = 'date';
-    score: string = 'score';
-
+    students: any[] = STUDENTS;
   constructor() { 
     
   }

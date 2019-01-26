@@ -1,7 +1,7 @@
-<tr>
-  <td>{{ surname }}</td>
-  <td>{{ name }}</td>
-  <td>{{ patronymic }}</td>
-  <td>{{ score }}</td>   
-  <td>{{ date }}</td> 
+<tr *ngFor="let student of students">
+  <th>{{ student.surname }}</th>
+  <th>{{ student.name }}</th>
+  <th>{{ student.patronymic }}</th>
+  <th>{{ student.score }}</th>   
+  <th>{{ student.date }}</th> 
 </tr>
