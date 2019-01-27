@@ -1,9 +1,9 @@
 <table>
   <tr>
-    <th>Фамилия</th>
-    <th>Имя</th>
+    <th>Фамилия <button (click)="surnameSort()">Сортировать по фамилии</button></th>
+    <th>Имя <button (click)="nameSort()">Сортировать по имени</button></th>
     <th>Отчество</th>
-    <th>Средний балл</th>
+    <th>Средний балл<button (click)="scoreSort()">Сортировать по среднему баллу</button></th>
     <th>Дата рождения</th>
   </tr>
   <tbody *ngFor="let student of students; let i = index">

@@ -28,6 +28,61 @@ onSearchChange(searchValue : string ) {
   console.log(this.inputValue);
 }
 
+bubbleSort = (arr) => {
+  for (let i = 0, endI = arr.length - 1; i < endI; i++) {
+      let wasSwap = false;
+      for (let j = 0, endJ = endI - i; j < endJ; j++) {
+          if (arr[j].surname > arr[j + 1].surname) {
+              [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+              wasSwap = true;
+          }
+      }
+      if (!wasSwap) break;
+  }
+  return arr;
+};
+
+
+bubbleSortName = (arr) => {
+  for (let i = 0, endI = arr.length - 1; i < endI; i++) {
+      let wasSwap = false;
+      for (let j = 0, endJ = endI - i; j < endJ; j++) {
+          if (arr[j].name > arr[j + 1].name) {
+              [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+              wasSwap = true;
+          }
+      }
+      if (!wasSwap) break;
+  }
+  return arr;
+};
+
+bubbleSortScore = (arr) => {
+  for (let i = 0, endI = arr.length - 1; i < endI; i++) {
+      let wasSwap = false;
+      for (let j = 0, endJ = endI - i; j < endJ; j++) {
+          if (arr[j].score > arr[j + 1].score) {
+              [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+              wasSwap = true;
+          }
+      }
+      if (!wasSwap) break;
+  }
+  return arr;
+};
+
+surnameSort():void {
+  this.bubbleSort(this.students);
+}
+
+nameSort():void {
+  this.bubbleSortName(this.students);
+}
+
+scoreSort():void {
+  this.bubbleSortScore(this.students);
+}
+
 removeRow(index: number): void {
   this.students.splice(index, 1);
 }
@@ -51,33 +106,22 @@ onInputDateSecondChange(searchValue: string) {
 }
 
 filterByScore(studentScore: number): boolean {
-  console.log(this.firstScore);
-  console.log(this.secondScore);
-  console.log(studentScore)
   if (studentScore >= Number(this.firstScore) && studentScore <= Number(this.secondScore)) return false;
   return true;
 }
 
 convertToFormat (date: string): string {
   const dateWithoutDots = date.replace(/\./g, ""); 
-  console.log(dateWithoutDots);
   const day: string = `${dateWithoutDots[0]}${dateWithoutDots[1]}`;
-  console.log("day", day);
   const month: string = `${dateWithoutDots[2]}${dateWithoutDots[3]}`;
-  console.log("month", month);
   const year: string = `${dateWithoutDots[4]}${dateWithoutDots[5]}${dateWithoutDots[6]}${dateWithoutDots[7]}`;
-  console.log("year", year);
   return `${year}-${month}-${day}`;
 }
 filterByDate(studentDateInStr: string): boolean {
   const studentDate: Date = new Date(this.convertToFormat(studentDateInStr));
-  console.log("STUDENT DATE", this.convertToFormat(studentDateInStr));
   const studentDateValue: number = studentDate.getTime();
   const startDate: number = new Date(this.firstDate).getTime();
   const lastDate: number = new Date(this.secondDate).getTime();
-  console.log("first Date", startDate);
-  console.log("student date", studentDateValue)
-  console.log("last Date", lastDate);
   if (studentDateValue >= startDate && studentDateValue <= lastDate) return false;
   return true;
 }
