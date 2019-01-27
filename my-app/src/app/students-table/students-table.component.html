@@ -6,11 +6,16 @@
     <th>Средний балл</th>
     <th>Дата рождения</th>
   </tr>
-  <tr *ngFor="let student of students">
-    <th>{{ student.surname }}</th>
-    <th>{{ student.name }}</th>
-    <th>{{ student.patronymic }}</th>
-    <th>{{ student.score }}</th>   
-    <th>{{ student.date }}</th> 
-  </tr>
+  <tbody *ngFor="let student of students">
+    <tr [ngClass]="{'tr-red': student.score < 3 && isChecked }" >
+      <th>{{ student.surname }}</th>
+      <th>{{ student.name }}</th>
+      <th>{{ student.patronymic }}</th>
+      <th>{{ student.score }}</th>   
+      <th>{{ student.date }}</th> 
+    </tr>
+  </tbody>
 </table>
+
+<input type="checkbox" (change)="selectionChange($event.srcElement)">
+<label for="checkScore">Показать студентов, чей средний бал ниже 3</label>

@@ -7,6 +7,14 @@ import { STUDENTS } from '../students';
 })
 export class StudentsTableComponent implements OnInit {
   students: any[] = STUDENTS;
+  isChecked: boolean = false;
+  selectionChange(input: HTMLInputElement) {
+    console.log(input);
+    input.checked === true
+      ? this.isChecked = true
+      : this.isChecked = false;
+}
+
   constructor() { }
   
   ngOnInit() {
