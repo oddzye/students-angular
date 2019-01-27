@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+$btn-red: #DC143C
+$btn-blue: #008080
 table
   font-family: arial, sans-serif
   border-collapse: collapse
@@ -11,4 +13,22 @@ td, th
   padding: 8px
 
 
+.standart-btn 
+  background-color: $btn-blue
+  border: 1px solid $btn-blue
+  border-radius: 5px
+  color: white
+  margin-left: 10px
+  &:hover
+    cursor: pointer
+    background-color: lighten($btn-blue, 5%)
 
+.standart-btn__red 
+  background-color: $btn-red
+  border: 1px solid $btn-red
+  border-radius: 5px
+  color: white
+  margin-left: 10px
+  &:hover
+    cursor: pointer
+    background-color: darken($btn-red, 5%)

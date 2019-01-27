@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { STUDENTS } from '../students'; 
-import { last } from '@angular/router/src/utils/collection';
-import { start } from 'repl';
+
 @Component({
   selector: 'app-students-table',
   templateUrl: './students-table.component.html',
