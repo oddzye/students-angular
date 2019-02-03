@@ -1,0 +1,14 @@
+<div class="popup-overlay">
+  <div class="popup">  
+    <button class="popup-close" (click)="close()" class="popup-close">
+      &times;
+    </button>
+    <form>
+      <input type="text" (input)="onChangeName()">
+      <input type="text" (input)="onChangeSurname()">
+      <input type="text" (input)="onChangePatronymic()">
+      <input type="number" (input)="onChangeAge()">
+      <input type="date" (input)="onChangeDate()">
+    </form>
+  </div>
+</div>

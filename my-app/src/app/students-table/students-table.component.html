@@ -1,28 +1,35 @@
-<table>
-  <tr>
-    <th>Фамилия <button class="standart-btn" (click)="surnameSort()">Сортировать по фамилии</button></th>
-    <th>Имя <button class="standart-btn" (click)="nameSort()">Сортировать по имени</button></th>
-    <th>Отчество</th>
-    <th>Средний балл<button class="standart-btn" (click)="scoreSort()">Сортировать по среднему баллу</button></th>
-    <th>Дата рождения</th>
-  </tr>
-  <tbody *ngFor="let student of students; let i = index">
-    <tr [ngClass]="{'tr-red': student.score < 3 && isChecked , 
-    'tr-blue': student.surname.toUpperCase() === inputValue || student.name.toUpperCase() === inputValue,
-  'sort': filterByDate(student.date), 'sort-score': filterByScore(student.score)}">
-      <td>{{ student.surname }}</td>
-      <td>{{ student.name }}</td>
-      <td>{{ student.patronymic }}</td>
-      <td>{{ student.score }}</td>   
-      <td>{{ student.date }}
-        <button class="standart-btn__red" (click)="removeRow(i)">Удалить</button>
-      </td> 
-    </tr>
-  </tbody>
-</table>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <table>
+        <tr>
+          <th>Фамилия <button class="standart-btn" (click)="surnameSort()">Сортировать по фамилии</button></th>
+          <th>Имя <button class="standart-btn" (click)="nameSort()">Сортировать по имени</button></th>
+          <th>Отчество</th>
+          <th>Средний балл<button class="standart-btn" (click)="scoreSort()">Сортировать по среднему баллу</button></th>
+          <th>Дата рождения</th>
+        </tr>
+        <tbody *ngFor="let student of students; let i = index">
+          <tr [ngClass]="{'tr-red': student.score < 3 && isChecked , 
+          'tr-blue': student.surname.toUpperCase() === inputValue || student.name.toUpperCase() === inputValue,
+        'sort': filterByDate(student.date), 'sort-score': filterByScore(student.score)}">
+            <td>{{ student.surname }}</td>
+            <td>{{ student.name }}</td>
+            <td>{{ student.patronymic }}</td>
+            <td>{{ student.score }}</td>   
+            <td>{{ student.date }}
+              <button class="standart-btn__red" (click)="removeRow(i)">Удалить</button>
+            </td> 
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
 
 <div>
-  <input type="checkbox" (change)="selectionChange($event.srcElement)">
+  <input id="checkScore" type="checkbox" (change)="selectionChange($event.srcElement)">
   <label for="checkScore">Показать студентов, чей средний бал ниже 3</label>
 </div>
 
@@ -42,4 +49,9 @@
   Отобразить студентов с баллом от 
   <input type="text" (input)="onChangeFirstScore($event.target.value)" [value]="firstScore"> до
   <input type="text" (input)="onChangeSecondScore($event.target.value)" [value]="secondScore">
+</div>
+
+<button (click)="toggleOpen()" class="btn btn-primary">Добавить студента</button>
+<div *ngIf="showPopup">
+  <app-popup (onClose)="ClosePopup()"></app-popup>
 </div>

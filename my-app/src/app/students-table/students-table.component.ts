@@ -15,6 +15,7 @@ export class StudentsTableComponent implements OnInit {
   secondDate: string = "2019-12-25";
   firstScore: string = "1";
   secondScore: string = "5";
+  showPopup: boolean = false; 
 
   selectionChange(input: HTMLInputElement) {
     input.checked === true
@@ -41,6 +42,9 @@ bubbleSort = (arr) => {
   return arr;
 };
 
+private toggleOpen():void {
+  this.showPopup = true;
+};
 
 bubbleSortName = (arr) => {
   for (let i = 0, endI = arr.length - 1; i < endI; i++) {
@@ -116,6 +120,7 @@ convertToFormat (date: string): string {
   const year: string = `${dateWithoutDots[4]}${dateWithoutDots[5]}${dateWithoutDots[6]}${dateWithoutDots[7]}`;
   return `${year}-${month}-${day}`;
 }
+
 filterByDate(studentDateInStr: string): boolean {
   const studentDate: Date = new Date(this.convertToFormat(studentDateInStr));
   const studentDateValue: number = studentDate.getTime();
@@ -123,6 +128,10 @@ filterByDate(studentDateInStr: string): boolean {
   const lastDate: number = new Date(this.secondDate).getTime();
   if (studentDateValue >= startDate && studentDateValue <= lastDate) return false;
   return true;
+}
+
+private ClosePopup() {
+  this.showPopup = false;
 }
 constructor() { }
   
