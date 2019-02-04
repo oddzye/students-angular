@@ -1,14 +1,16 @@
 <div class="popup-overlay">
   <div class="popup">  
+    <h3 class="popup-title">Add student</h3>
     <button class="popup-close" (click)="close()" class="popup-close">
       &times;
     </button>
-    <form>
-      <input type="text" (input)="onChangeName()">
-      <input type="text" (input)="onChangeSurname()">
-      <input type="text" (input)="onChangePatronymic()">
-      <input type="number" (input)="onChangeAge()">
-      <input type="date" (input)="onChangeDate()">
+    <form [formGroup]="form" (ngSubmit)="onAddStudent($event)">
+      <input type="text"  [formControlName]="'name'">
+      <input type="text" [formControlName]="'surname'">
+      <input type="text" [formControlName]="'patronymic'">
+      <input type="number" [formControlName]="'age'">
+      <input type="date" [formControlName]="'date'">
+      <input type="submit">
     </form>
   </div>
 </div>

@@ -7,16 +7,25 @@
     z-index: 1
     display: block
     .popup
+        text-align: center
         position: absolute
         top: 300px
         background-color: white
-        padding: 30px 40px
+        padding: 40px 40px
         left: 50%
+        width: 400px
         transform: translateX(-50%)
+        &-title
+            margin-bottom: 30px
         &-close
             position: absolute
             right: 0
             top: 0
         input
             display: block
+            margin-bottom: 10px
+        form 
+            display: flex
+            flex-direction: column
+            justify-content: center        
     

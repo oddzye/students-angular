@@ -7,6 +7,7 @@ import { StudentsTableComponent } from './students-table/students-table.componen
 import { StudentsTableRowComponent } from './students-table-row/students-table-row.component';
 import { SearchStudentsByNameComponent } from './search-students-by-name/search-students-by-name.component';
 import { PopupComponent } from './popup/popup.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PopupComponent } from './popup/popup.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
